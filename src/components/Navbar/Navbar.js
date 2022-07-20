@@ -1,23 +1,39 @@
-import "./Navbar.css";
-import CartWidget from "../CartWidget/CartWidget";
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import CartWidget from '../CartWidget/CartWidget';
+import './Navbar.css';
 
-const Navbar = () =>{
+function NavbarGh() {
     return (
-        <header>
-                <img
+        <Navbar collapseOnSelect expand='lg' bg='black'>
+            <Container>
+                <Navbar.Toggle aria-controls='responsive-navbar-nav'>
+                    <img
+                        src='images/menu.png'
+                        alt='logo menu'
+                    />
+                </Navbar.Toggle>
+                <Navbar.Brand>
+                    <img
                         src='images/logoGh.png'
                         className="logo"
                         alt="Logo Golden House"
-                />
-                <div className="links">
-                    <button>Home</button>
-                    <button>Kitchen</button>
-                    <button>Bathroom</button>
+                    />
+                </Navbar.Brand>
+                <Navbar.Collapse id='responsive-navbar-nav'>
+                    <Nav className='me-auto'>
+                        <button>Kitchen</button>
+                        <button>Bathroom</button>
+                    </Nav>
+                </Navbar.Collapse>
+                <Navbar.Brand>
                     <CartWidget/>
-                </div>
-        </header>
-
-    )
+                </Navbar.Brand>
+            </Container>
+        </Navbar>
+    );
 }
 
-export default Navbar
+export default NavbarGh;
