@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
@@ -25,7 +24,7 @@ function NavbarGh() {
                 <Navbar.Collapse id='responsive-navbar-nav'>
                     <Nav className='me-auto'>
                         <button>Kitchen</button>
-                        <button>Bathroom</button>
+                        <button>Bath</button>
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Brand>
