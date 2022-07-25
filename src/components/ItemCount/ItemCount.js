@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './ItemCount.css'
 
-const Count = ({stock}) =>{
+const Count = ({stock, onAdd}) =>{
     const [number, setNumber] = useState(0);
 
     const add = () => {
@@ -13,14 +13,14 @@ const Count = ({stock}) =>{
     } 
     return(
         <>
-            <div>
-                <p>{number}</p>
+            <div className='count'>
                 <button onClick={add} className='button'>
                     <img 
                     src='./images/icono/add.png' 
                     width={32} alt='Add product'
                     />
                 </button>
+                    <p>{number}</p>
                 <button onClick={subtract}className='button'>
                     <img 
                     src='./images/icono/substract.png' 
@@ -29,6 +29,7 @@ const Count = ({stock}) =>{
                     />
                 </button>
             </div>
+            <button className='buttonAdd' onClick={()=> onAdd(number)}>Add to Cart</button>
         </>
     )
 }
