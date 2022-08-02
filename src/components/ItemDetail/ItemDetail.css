@@ -1,0 +1,15 @@
+.itemDetail{
+    margin: 2rem;
+}
+
+.detail{
+    display: flex;
+    margin: 2rem;
+    
+}
+
+.imageProduct{
+    width: 25rem;
+    height: 25rem;
+
+}

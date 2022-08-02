@@ -1,6 +1,8 @@
-.button{
+.btnCount{
     background-color: transparent;
+    border: none;
 }
+
 
 .buttonAdd{
     border-color: black;
@@ -9,8 +11,7 @@
     border-radius: 1rem;
     border: 2px solid black;
     height: 2.5rem;
-    width: 100%;
-    margin: 1rem 0 0 0;
+    margin: 1rem;
     font-weight: 300;
     font-size: 1.25rem;
 }

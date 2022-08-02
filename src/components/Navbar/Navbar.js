@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
+import {Link} from 'react-router-dom';
 import './Navbar.css';
 
 function NavbarGh() {
@@ -10,21 +11,25 @@ function NavbarGh() {
             <Container>
                 <Navbar.Toggle aria-controls='responsive-navbar-nav'>
                     <img
-                        src='images/menu.png'
+                        src='../images/menu.png'
                         alt='logo menu'
                     />
                 </Navbar.Toggle>
                 <Navbar.Brand>
-                    <img
-                        src='images/logoGh.png'
-                        className="logo"
-                        alt="Logo Golden House"
-                    />
+                    <Link to='/'>
+                        <img
+                            src='../images/logoGh.png'
+                            className="logo"
+                            alt="Logo Golden House"
+                        />
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Collapse id='responsive-navbar-nav'>
                     <Nav className='me-auto'>
-                        <button>Kitchen</button>
-                        <button>Bath</button>
+                        <Link to='/' className='link'>Home</Link>
+                        <Link to='Category/Kitchen' className='link'>Kitchen</Link>
+                        <Link to='Category/Bath' className='link'>Bath</Link>
+                        <Link to='Category/Contact' className='link'>Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Brand>

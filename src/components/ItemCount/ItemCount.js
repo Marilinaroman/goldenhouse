@@ -3,29 +3,36 @@ import './ItemCount.css'
 
 const Count = ({stock, onAdd}) =>{
     const [number, setNumber] = useState(0);
-
+    
     const add = () => {
-        number < stock? setNumber(number + 1 ) : setNumber(number=stock);
+        if (number<stock){
+            setNumber(number + 1)
+            return setNumber
+        }
     } 
 
     const subtract = () => {
-        number > 0? setNumber(number -1 ) : setNumber(number = 0);
-    } 
+        if (number>0){
+            setNumber(number - 1)
+            return setNumber
+        }
+    }
+    
     return(
         <>
             <div className='count'>
-                <button onClick={add} className='button'>
+                <button onClick={subtract} className='btnCount'>
                     <img 
-                    src='./images/icono/add.png' 
-                    width={32} alt='Add product'
+                    src='../images/icono/substract.png' 
+                    width={32} 
+                    alt='Subtract product'
                     />
                 </button>
                     <p>{number}</p>
-                <button onClick={subtract}className='button'>
+                <button onClick={add} className='btnCount'>
                     <img 
-                    src='./images/icono/substract.png' 
-                    width={32} 
-                    alt='Subtract product'
+                    src='../images/icono/add.png' 
+                    width={32} alt='Add product'
                     />
                 </button>
             </div>
@@ -34,4 +41,4 @@ const Count = ({stock, onAdd}) =>{
     )
 }
 
-export default Count;
+export default Count
