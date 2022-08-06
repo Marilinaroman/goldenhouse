@@ -22,7 +22,7 @@ const ItemListContainer = ({tittle}) =>{
     }, [category]);
 
     if(loading){
-        return <h1>loading</h1>
+        return <h1>Loading...</h1>
     }
     return (
     <>
