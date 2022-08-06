@@ -68,4 +68,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 ## Gif 
-![Watch the video](/goldenhouse/public/video/goldenhouse.gif)
+![Watch the video](https://github.com/Marilinaroman/goldenhouse/blob/main/public/video/goldenhouse.gif)
