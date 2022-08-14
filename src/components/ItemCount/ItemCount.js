@@ -2,8 +2,8 @@ import {useState} from 'react';
 import './ItemCount.css'
 
 
-const Count = ({stock, onAdd, initial =1}) =>{
-    const [quantity, setQuantity] = useState(initial);
+const Count = ({stock, onAdd, initial = 1}) =>{
+    const [quantity, setQuantity] =  useState( stock>0 ? initial : stock);
     
     const handleChange = (e) =>{
         if(e.target.value <= stock){

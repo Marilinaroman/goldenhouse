@@ -15,8 +15,9 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
         const productToAdd = {
             id, name, price, quantity
         }
-        addItem(productToAdd)
-        console.log(productToAdd)
+        if(quantity>0){
+            addItem(productToAdd)
+        }
     }
 
     const productQuantity= getProductQuantity(id)
