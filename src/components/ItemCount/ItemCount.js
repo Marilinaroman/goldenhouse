@@ -33,7 +33,7 @@ const Count = ({stock, onAdd, initial = 1}) =>{
                     alt='Subtract product'
                     />
                 </button>
-                    <input onChange={handleChange}  value={quantity}/>
+                    <input onChange={handleChange} value={quantity}/>
                 <button onClick={add} className='btnCount'>
                     <img 
                     src='../images/icono/add.png' 

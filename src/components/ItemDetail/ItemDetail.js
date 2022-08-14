@@ -4,19 +4,22 @@ import {Link} from 'react-router-dom'
 import {useState, useContext} from 'react'
 import Count from '../ItemCount/ItemCount';
 import CartContext from '../../context/CartContext'
+import AlertContext  from '../../context/Alert';
 
 const ItemDetail = ({id, name, price, description,stock,img}) =>{
     const [quantityAdd, setQuantityAdd] = useState(0)
     const {addItem, getProductQuantity} = useContext(CartContext)
+    const {setNotification} = useContext(AlertContext)
 
     const handleOnAdd = (quantity) => {;
         setQuantityAdd(quantity)
 
         const productToAdd = {
-            id, name, price, quantity
+            id, name, price, quantity:Number(quantity)
         }
         if(quantity>0){
             addItem(productToAdd)
+            setNotification('success',`You add ${quantity} ${name}`)
         }
     }
 
