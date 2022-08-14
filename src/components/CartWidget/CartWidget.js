@@ -1,6 +1,10 @@
 import './CartWidget.css';
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 const CartWidget = () =>{
+    const {getQuantity} = useContext(CartContext)
+    const quantity = getQuantity()
     return(
         <div className="CartWidget">
             <img
@@ -8,7 +12,7 @@ const CartWidget = () =>{
                 alt="CartWidget"
                 width="40"
             />
-            <span>10</span>
+            <span>{quantity}</span>
         </div>
     )
 }

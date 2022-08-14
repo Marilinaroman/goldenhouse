@@ -6,17 +6,20 @@ import Count from '../ItemCount/ItemCount';
 import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({id, name, price, description,stock,img}) =>{
-    const {addItem} = useContext(CartContext)
-    const [quantity, setQuantity] = useState(0)
-    
+    const [quantityAdd, setQuantityAdd] = useState(0)
+    const {addItem, getProductQuantity} = useContext(CartContext)
+
     const handleOnAdd = (quantity) => {;
-        setQuantity(quantity)
+        setQuantityAdd(quantity)
+
         const productToAdd = {
             id, name, price, quantity
         }
         addItem(productToAdd)
+        console.log(productToAdd)
     }
 
+    const productQuantity= getProductQuantity(id)
     return(
         <div className='itemDetail'>
             <h1>{name}</h1>
@@ -28,7 +31,7 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
                     <p> ${price}</p>
                     <p>{description}</p>
                     <p> Stock = {stock}</p>
-                    {quantity <=0 ? <Count stock={stock} onAdd={handleOnAdd}/> : ( <div>
+                    {quantityAdd <=0 ? <Count stock={stock} initial={productQuantity} onAdd={handleOnAdd}/> : ( <div>
                         <Link className='button' to='/Cart'>Go to Cart</Link>
                         <Link className='button' to='/' >Keep Buying</Link>
                     </div>)}

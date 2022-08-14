@@ -2,24 +2,24 @@ import {useState} from 'react';
 import './ItemCount.css'
 
 
-const Count = ({stock, onAdd}) =>{
-    const [number, setNumber] = useState(0);
+const Count = ({stock, onAdd, initial =1}) =>{
+    const [quantity, setQuantity] = useState(initial);
     
     const handleChange = (e) =>{
         if(e.target.value <= stock){
-            setNumber(e.target.value)
+            setQuantity(e.target.value)
         }
     }
 
     const add = () => {
-        if (number<stock){
-            setNumber(Number(number) + 1)
+        if (quantity<stock){
+            setQuantity(Number(quantity) + 1)
         }
     } 
 
     const subtract = () => {
-        if (number>0){
-            setNumber(number - 1)
+        if (quantity>0){
+            setQuantity(quantity - 1)
         }
     }
     
@@ -33,7 +33,7 @@ const Count = ({stock, onAdd}) =>{
                     alt='Subtract product'
                     />
                 </button>
-                    <input onChange={handleChange}  value={number}/>
+                    <input onChange={handleChange}  value={quantity}/>
                 <button onClick={add} className='btnCount'>
                     <img 
                     src='../images/icono/add.png' 
@@ -41,7 +41,7 @@ const Count = ({stock, onAdd}) =>{
                     />
                 </button>
             </div>
-            <button className='buttonAdd' onClick={()=> onAdd(number)}>Add to Cart</button>
+            <button className='buttonAdd' onClick={()=> onAdd(quantity)}>Add to Cart</button>
         </>
     )
 }
