@@ -8,11 +8,13 @@ import './ItemListContainer.css';
 const ItemListContainer = ({tittle}) =>{
 
     const [products, setProducts] = useState([]);
-    const[loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const {category} = useParams()
 
     useEffect(() =>{
-        const collectionAll = !category ? collection(db,'products') : query(collection(db,'products'), where ('category', '==', category))
+
+        const firstFilter = query(collection(db,'products'),where('order', '==', 1))
+        const collectionAll = !category ?  firstFilter : query(firstFilter, where ('category', '==', category))
 
         getDocs(collectionAll).then(response =>{
             const productsDb = response.docs.map(doc =>{
@@ -34,7 +36,7 @@ const ItemListContainer = ({tittle}) =>{
     }
     return (
     <>
-        <h1>{tittle}</h1>
+        <h1>{ tittle?? category}</h1>
         <div className="cards">
             <ItemList products={products}/>
         </div>

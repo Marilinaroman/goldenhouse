@@ -17,9 +17,11 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
         const productToAdd = {
             id, name, price, quantity:Number(quantity)
         }
-        if(quantity>0){
+        if(quantity<=0){
+            setNotification('danger',`Sorry! We don't have stock`)
+        } else{
             addItem(productToAdd)
-            setNotification('success',`You add ${quantity} ${name}`)
+            setNotification('success',`You added ${quantity} ${name}`)
         }
     }
 
@@ -37,7 +39,6 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
                     <p> Stock = {stock}</p>
                     {quantityAdd <=0 ? <Count stock={stock} initial={productQuantity} onAdd={handleOnAdd}/> : ( <div>
                         <Link className='button' to='/Cart'>Go to Cart</Link>
-                        <Link className='button' to='/' >Keep Buying</Link>
                     </div>)}
                 </div>
             </div>

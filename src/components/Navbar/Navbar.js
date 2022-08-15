@@ -33,7 +33,7 @@ function NavbarGh() {
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Brand>
-                    <CartWidget/>
+                <Link to='Cart' className='link'><CartWidget/></Link>
                 </Navbar.Brand>
             </Container>
         </Navbar>
