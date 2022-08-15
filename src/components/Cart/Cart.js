@@ -5,8 +5,12 @@ import './Cart.css'
 
 const CartDetail = () =>{
     const {cart, clearCart, removeItem} = useContext(CartContext)
-    
 
+    const total = cart.reduce((acc, sum) => {
+        return acc + sum.total
+    }, 0)
+
+    console.log(total)
     return(
         <div className='cart'>
             <h1>{cart.length === 0 ? 'Your cart is empty' :  'Your cart'}</h1>
@@ -32,10 +36,13 @@ const CartDetail = () =>{
                         </td>
                         <td>${u.price}</td>
                         <td>{u.quantity}</td>
-                        <td>${u.quantity * u.price}</td>
+                        <td>${u.total}</td>
                         </tr>)
                     })}
-                    
+                    <tr>
+                    <td colSpan={4}>Total</td>
+                    <td>${total}</td>
+                    </tr>
                 </tbody>
             </Table>
             <div className='containerButton'>

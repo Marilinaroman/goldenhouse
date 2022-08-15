@@ -15,7 +15,7 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
         setQuantityAdd(quantity)
 
         const productToAdd = {
-            id, name, price, quantity:Number(quantity)
+            id, name, price, quantity:Number(quantity), total: (price*quantity)
         }
         if(quantity<=0){
             setNotification('danger',`Sorry! We don't have stock`)
