@@ -11,7 +11,7 @@ const ItemDetail = ({id, name, price, description,stock,img}) =>{
     const {addItem, getProductQuantity} = useContext(CartContext)
     const {setNotification} = useContext(AlertContext)
 
-    const handleOnAdd = (quantity) => {;
+    const handleOnAdd = (quantity) => {
         setQuantityAdd(quantity)
 
         const productToAdd = {

@@ -17,3 +17,8 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.linkProduct, .linkProduct:hover{
+    text-decoration: none;
+    color: black;
+}

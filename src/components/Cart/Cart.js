@@ -1,5 +1,6 @@
 import CartContext from '../../context/CartContext';
 import {useContext} from 'react';
+import {Link} from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import './Cart.css'
 
@@ -32,7 +33,9 @@ const CartDetail = () =>{
                             <img src='../images/icono/delete.png' width={22} alt='delete' onClick={() => removeItem(u.id) } id={u.id}/>
                         </td>
                         <td>
-                            {u.name}
+                            <Link className='linkProduct' to={`../Detail/${u.id}`}>
+                                {u.name}
+                            </Link>
                         </td>
                         <td>${u.price}</td>
                         <td>{u.quantity}</td>
