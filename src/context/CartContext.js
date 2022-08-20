@@ -16,6 +16,7 @@ export const CartContextProvider = ({children}) =>{
                     const productUp = {
                         ...prod,
                         quantity: productToAdd.quantity,
+                        total: productToAdd.quantity*productToAdd.price
                     }
                     return productUp
                 } else {
@@ -55,10 +56,12 @@ export const CartContextProvider = ({children}) =>{
         setCart(newCart)
     }
 
-    
+    const total = cart.reduce((acc, sum) => {
+        return acc + sum.total
+    }, 0)
     
     return(
-        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem}}>
+        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total}}>
             {children}
         </CartContext.Provider>
     )

@@ -5,11 +5,9 @@ import Table from 'react-bootstrap/Table';
 import './Cart.css'
 
 const CartDetail = () =>{
-    const {cart, clearCart, removeItem} = useContext(CartContext)
+    const {cart, clearCart, removeItem, total} = useContext(CartContext)
 
-    const total = cart.reduce((acc, sum) => {
-        return acc + sum.total
-    }, 0)
+    
 
     console.log(total)
     return(
