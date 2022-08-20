@@ -16,7 +16,6 @@ export const CartContextProvider = ({children}) =>{
                     const productUp = {
                         ...prod,
                         quantity: productToAdd.quantity,
-                        total: productToAdd.quantity*productToAdd.price,
                     }
                     return productUp
                 } else {
