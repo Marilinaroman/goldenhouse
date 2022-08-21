@@ -6,6 +6,7 @@ const CartContext = createContext()
 export const CartContextProvider = ({children}) =>{
     const {setNotification} = useContext(AlertContext)
     const [cart, setCart] = useState([])
+    const [buyer] = useState([])
     console.log(cart)
     const addItem = (productToAdd) =>{
         if(!isInCart(productToAdd.id)) {
@@ -59,9 +60,12 @@ export const CartContextProvider = ({children}) =>{
     const total = cart.reduce((acc, sum) => {
         return acc + sum.total
     }, 0)
+
+
+    
     
     return(
-        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total}}>
+        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total, buyer}}>
             {children}
         </CartContext.Provider>
     )

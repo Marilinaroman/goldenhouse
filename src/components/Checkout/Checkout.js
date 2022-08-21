@@ -1,13 +1,13 @@
 import { useContext, useState } from "react"
 import CartContext from "../../context/CartContext"
-
+import FormCheckout from './FormCheckout'
 import {db} from '../../service/firebase'
 import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
 
 const Checkout =() =>{
     const [isLoading, setIsLoading] = useState(false)
-    const {cart, total, clearCart }= useContext(CartContext)
+    const {cart, total, clearCart, buyer }= useContext(CartContext)
 
     const navigate = useNavigate()
     const createOrder = async () =>{
@@ -15,12 +15,7 @@ const Checkout =() =>{
 
         try{
             const newOrder = {
-                buyer: {
-                    name: 'mar',
-                    lastName: 'roman',
-                    phone: '12384924',
-                    adress: 'v. de la plaza'
-                },
+                buyer,
                 items: cart,
                 total,
                 date: new Date(),
@@ -80,7 +75,8 @@ const Checkout =() =>{
     return (
         <> 
         <h1>Hola</h1>
-        <button className="button" onClick={createOrder}> Create order</button>
+        <FormCheckout />
+        <button type="submit" className="button" onClick={createOrder}> Create order</button>
         </>
     )
 }
