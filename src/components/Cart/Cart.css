@@ -13,9 +13,13 @@
 
 }
 .containerButton{
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+
+.containerButton > button, .containerButton > a{
+    width: auto;
+    margin: 1rem;
 }
 
 .linkProduct, .linkProduct:hover{

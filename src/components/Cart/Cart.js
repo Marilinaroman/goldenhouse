@@ -54,7 +54,7 @@ const CartDetail = () =>{
                         <div className='containerButton'>
                             <button className='col-auto button' onClick={clearCart}>Clear all the cart</button>
                             <Link className='col-auto button' to='/'>Keep buying</Link>
-                            <button className='col-auto button'>Complete your order</button>
+                            <Link to='/Checkout' className='col-auto button'>Complete your order</Link>
                         </div>)}
                     </div>
                 </>)
