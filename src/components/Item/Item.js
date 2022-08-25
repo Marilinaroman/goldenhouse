@@ -15,7 +15,7 @@ const Item = ({id, name, price, description, img}) =>{
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>${price}</Card.Text>
-                    <Card.Text>{description}</Card.Text>
+                    <Card.Text style={{ overflowY: 'hidden', maxHeight:100 }}>{description}</Card.Text>
                     <Link to={`/Detail/${id}`} className='button'> See more </Link>
                 </Card.Body>
         </Card>

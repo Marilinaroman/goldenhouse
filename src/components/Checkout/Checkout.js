@@ -70,13 +70,11 @@ const Checkout =() =>{
     if(isLoading) {
         return <h1>We're creating your order</h1>
     }
-    
 
     return (
         <> 
-        <h1>Hola</h1>
-        <FormCheckout />
-        <button type="submit" className="button" onClick={createOrder}> Create order</button>
+            <h1>Complete the form</h1>
+            <FormCheckout createOrder={createOrder}/>
         </>
     )
 }

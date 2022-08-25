@@ -6,7 +6,13 @@ const CartContext = createContext()
 export const CartContextProvider = ({children}) =>{
     const {setNotification} = useContext(AlertContext)
     const [cart, setCart] = useState([])
-    const [buyer] = useState([])
+    const [buyer, setBuyer] = useState({
+        firstName:'',
+        lastName:'',
+        address:'',
+        phone:''
+
+})
     console.log(cart)
     const addItem = (productToAdd) =>{
         if(!isInCart(productToAdd.id)) {
@@ -65,7 +71,7 @@ export const CartContextProvider = ({children}) =>{
     
     
     return(
-        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total, buyer}}>
+        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total, buyer, setBuyer}}>
             {children}
         </CartContext.Provider>
     )
