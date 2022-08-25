@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom"
 
 const Checkout =() =>{
     const [isLoading, setIsLoading] = useState(false)
-    const {cart, total, clearCart, buyer }= useContext(CartContext)
-
+    const [idNewOrder, setIdNewOrder] = useState('')
+    const {cart, total, clearCart, buyer}= useContext(CartContext)
     const navigate = useNavigate()
     const createOrder = async () =>{
         setIsLoading(true)
@@ -23,7 +23,6 @@ const Checkout =() =>{
         
 
         const ids = cart.map(u => u.id)
-        console.log(ids)
         const listProducts = collection(db, 'products')
 
         const prodsFromFirestore = await getDocs(query(listProducts, where(documentId(), 'in', ids)))
@@ -54,21 +53,27 @@ const Checkout =() =>{
 
             const orderRef = collection(db, 'orders')
             const orderAdd = await addDoc(orderRef, newOrder)
-            console.log(`id ${orderAdd.id}`)
+            setIdNewOrder(orderAdd.id)
+            console.log(idNewOrder)
             clearCart()
-            setTimeout(() => {
-                navigate('/')
-            }, 3000)
+            
         } 
-        }catch (error) {
-            console.log(error)
-        } finally {
-            setIsLoading(false)
+    }catch (error) {
+        console.log(error)
+    } finally {
+        setIsLoading(false)
         }
     }
 
     if(isLoading) {
         return <h1>We're creating your order</h1>
+    }
+
+    if(idNewOrder) {
+        setTimeout(() => {
+            navigate('/')
+        }, 5000)
+        return <h1>{`The id of your order is: ${idNewOrder}`}</h1>
     }
 
     return (

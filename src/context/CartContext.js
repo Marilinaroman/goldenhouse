@@ -53,7 +53,6 @@ export const CartContextProvider = ({children}) =>{
         return product?.quantity
     }
     const clearCart = () => {
-        setNotification('info', 'Your cart has been emptied')
         setCart([])
     }
     const removeItem = (id) => {

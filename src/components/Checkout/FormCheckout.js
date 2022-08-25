@@ -1,5 +1,4 @@
 import {useContext } from 'react';
-import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import CartContext from '../../context/CartContext'
@@ -16,7 +15,6 @@ const FormCheckout = ({createOrder}) =>{
             ...buyer,
             [e.target.name]: e.target.value            
         })
-        
     }
 
     const handleSubmit = (e) => {
@@ -27,30 +25,30 @@ const FormCheckout = ({createOrder}) =>{
     
     return (
         <Container>
-            <Form className="justify-content-md-center" onSubmit={handleSubmit}>
+            <form className="justify-content-md-center" onSubmit={handleSubmit}>
             <Row>
-                <Form.Label>First Name</Form.Label>
-                    <input
-                            required
-                            type="text"
-                            name='firstName'
-                            placeholder="First name"
-                            value={firstName}
-                            onChange={handleChange}
-                        />
-                <Form.Label>Last name</Form.Label>
-                    <input
-                            required
-                            type="text"
-                            name='lastName'
-                            onChange={handleChange}
-                            value={lastName}
-                            placeholder="Last name"
-                        />
+                <label>First Name</label>
+                <input
+                    required
+                    type="text"
+                    name='firstName'
+                    placeholder="First name"
+                    value={firstName}
+                    onChange={handleChange}
+                />
+                <label>Last name</label>
+                <input
+                    required
+                    type="text"
+                    name='lastName'
+                    onChange={handleChange}
+                    value={lastName}
+                    placeholder="Last name"
+                />
             </Row>
-                <Row>
-                    <Form.Label>Address</Form.Label>
-                        <input 
+            <Row>
+                <label>Address</label>
+                    <input 
                         type="text" 
                         placeholder="Address" 
                         name='address' 
@@ -58,8 +56,8 @@ const FormCheckout = ({createOrder}) =>{
                         onChange={handleChange} 
                         required
                         />
-                    <Form.Label>Phone</Form.Label>
-                        <input 
+                <label>Phone</label>
+                    <input 
                         type="text" 
                         placeholder="Phone" 
                         name='phone' 
@@ -68,11 +66,11 @@ const FormCheckout = ({createOrder}) =>{
                         required 
                         />
                         
-                </Row>
-                <Row>
-                    {(firstName && lastName && address && phone )? <button className="button" onClick={()=>createOrder()}>submit</button> : console.log('Form empty')}
-                </Row>
-            </Form>
+            </Row>
+            <Row>
+                {(firstName && lastName && address && phone )? <button className="button" onClick={()=>createOrder()}>submit</button> : console.log('Form empty')}
+            </Row>
+            </form>
         </Container>
     )
 }
