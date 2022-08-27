@@ -1,4 +1,4 @@
-import {getDocs, collection, query, where, getDoc, doc} from 'firebase/firestore'
+import {getDocs, collection, query, where, getDoc, doc, documentId, writeBatch, addDoc, } from 'firebase/firestore'
 import {db} from '../../service/firebase'
 
 
@@ -43,4 +43,43 @@ export const getCategories =()=>{
     }).catch(error =>{
         return error
     })
+}
+
+export const createNewOrders = async (newOrder, cart, clearCart) =>{
+    const ids = cart.map(u => u.id)
+    const listProducts = collection(db, 'products')
+    let orderAdd =[]
+
+    const prodsFromFirestore = await getDocs(query(listProducts, where(documentId(), 'in', ids)))
+
+    const {docs} = prodsFromFirestore
+
+    const outOfStock = [];
+
+    const batch = writeBatch(db)
+
+    docs.forEach( doc => {
+            const dataDocs = doc.data()
+            const stockDb = dataDocs.stock
+
+            const productsOfCart = cart.find(prod => prod.id === doc.id)
+            const prodQuantity = productsOfCart?.quantity
+
+            if(stockDb >= prodQuantity){
+                batch.update(doc.ref, {stock: stockDb - prodQuantity})
+            } else{
+                outOfStock.push({id: doc.id, ...dataDocs})
+            }
+            
+        })
+
+    if (outOfStock.length === 0){
+        await batch.commit()
+
+        const orderRef = collection(db, 'orders')
+        orderAdd = await addDoc(orderRef, newOrder)
+        clearCart()
+        return orderAdd
+    }
+    return orderAdd
 }

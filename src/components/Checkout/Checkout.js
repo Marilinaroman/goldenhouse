@@ -1,16 +1,18 @@
 import { useContext, useState } from "react"
 import CartContext from "../../context/CartContext"
 import FormCheckout from './FormCheckout'
-import {db} from '../../service/firebase'
-import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
+import { createNewOrders } from "../../service/firebase/firestore"
 
 const Checkout =() =>{
     const [isLoading, setIsLoading] = useState(false)
-    const [idNewOrder, setIdNewOrder] = useState('')
+    const [newOrder, setNewOrder] = useState()
     const {cart, total, clearCart, buyer}= useContext(CartContext)
+
     const navigate = useNavigate()
+
     const createOrder = async () =>{
+
         setIsLoading(true)
 
         try{
@@ -21,59 +23,25 @@ const Checkout =() =>{
                 date: new Date(),
             }
         
-
-        const ids = cart.map(u => u.id)
-        const listProducts = collection(db, 'products')
-
-        const prodsFromFirestore = await getDocs(query(listProducts, where(documentId(), 'in', ids)))
-
-        const {docs} = prodsFromFirestore
-
-        const outOfStock = [];
-
-        const batch = writeBatch(db)
-
-        docs.forEach( doc => {
-            const dataDocs = doc.data()
-            const stockDb = dataDocs.stock
-
-            const productsOfCart = cart.find(prod => prod.id === doc.id)
-            const prodQuantity = productsOfCart?.quantity
-
-            if(stockDb >= prodQuantity){
-                batch.update(doc.ref, {stock: stockDb - prodQuantity})
-            } else{
-                outOfStock.push({id: doc.id, ...dataDocs})
-            }
-            
-        })
-
-        if (outOfStock.length === 0){
-            await batch.commit()
-
-            const orderRef = collection(db, 'orders')
-            const orderAdd = await addDoc(orderRef, newOrder)
-            setIdNewOrder(orderAdd.id)
-            console.log(idNewOrder)
-            clearCart()
-            
-        } 
-    }catch (error) {
-        console.log(error)
-    } finally {
-        setIsLoading(false)
+        createNewOrders(newOrder, cart, clearCart).then((res)=>{
+            setNewOrder(res)
+            setIsLoading(false)
+        }).catch(error =>{
+            console.log(error)
+        })} 
+        catch (error) {
+            console.log(error)
         }
     }
 
     if(isLoading) {
         return <h1>We're creating your order</h1>
     }
-
-    if(idNewOrder) {
+    if(newOrder) {
         setTimeout(() => {
             navigate('/')
         }, 5000)
-        return <h1>{`The id of your order is: ${idNewOrder}`}</h1>
+        return <h1>{`The id of your order is: ${newOrder.id}`}</h1>
     }
 
     return (
