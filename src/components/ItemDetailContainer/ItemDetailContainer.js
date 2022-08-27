@@ -1,9 +1,7 @@
 import { useState, useEffect  } from "react";
 import {useParams} from "react-router-dom"
-import {getDoc, doc} from 'firebase/firestore'
-import {db} from '../../service/firebase'
 import ItemDetail from '../ItemDetail/ItemDetail'
-
+import { getProd } from "../../service/firebase/firestore";
 
 
 const ItemDetailContainer = () =>{
@@ -13,11 +11,8 @@ const ItemDetailContainer = () =>{
     const {prodId} = useParams();
 
     useEffect(() => {
-        getDoc(doc(db, 'products',prodId)).then(res => {
-            const data = res.data()
-            const productDb = {id:res.id, ...data}
-            setProduct(productDb)
-
+        getProd(prodId).then(product =>{
+            setProduct(product)
         }).catch(error =>{
             console.log(error)
         }).finally(()=>{
