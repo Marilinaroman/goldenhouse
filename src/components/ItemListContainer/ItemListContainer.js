@@ -21,7 +21,7 @@ const ItemListContainer = ({tittle}) =>{
     <>
         <h1>{ tittle?? category}</h1>
         <div className="cards">
-            <ItemList data={data}/>
+            <ItemList products={data}/>
         </div>
     </>    
     )

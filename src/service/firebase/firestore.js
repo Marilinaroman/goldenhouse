@@ -30,3 +30,17 @@ export const getProd = (prodId) =>{
 }
 
 
+export const getCategories =()=>{
+    const allCategories = collection(db, 'categories')
+    return getDocs(allCategories).then((response) =>{
+        const categories = response.docs.map((snap)=>{
+            return{
+                id: snap.id,
+                ...snap.data()
+            }
+        })
+        return categories
+    }).catch(error =>{
+        return error
+    })
+}

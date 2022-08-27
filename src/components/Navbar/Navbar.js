@@ -3,9 +3,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
+import { useAsync } from '../../hooks/useAsync';
+import { getCategories } from '../../service/firebase/firestore';
 import './Navbar.css';
 
-function NavbarGh() {
+const NavbarGh = () => {
+    const {data,error} = useAsync(() => getCategories())
+
+    if(error){
+        console.log(error)
+    }
+
     return (
         <Navbar collapseOnSelect expand='lg' bg='black'>
             <Container>
@@ -27,8 +35,9 @@ function NavbarGh() {
                 <Navbar.Collapse id='responsive-navbar-nav'>
                     <Nav className='me-auto'>
                         <Link to='/' className='link'>Home</Link>
-                        <Link to='Category/Kitchen' className='link'>Kitchen</Link>
-                        <Link to='Category/Bath' className='link'>Bath</Link>
+                        {data?.map((category) =>(
+                            <Link to={category.path} key={category.name} className='link'>{category.name}</Link>
+                        ))}
                         <Link to='Category/Contact' className='link'>Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
