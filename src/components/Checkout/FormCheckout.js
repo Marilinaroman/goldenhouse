@@ -19,6 +19,7 @@ const FormCheckout = ({createOrder}) =>{
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        e.stopPropagation()
     }
 
     console.log(buyer)
