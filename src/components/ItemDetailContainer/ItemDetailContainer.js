@@ -1,8 +1,8 @@
-
 import {useParams} from "react-router-dom"
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { getProd } from "../../service/firebase/firestore";
 import { useAsync } from "../../hooks/useAsync";
+import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () =>{
     const {prodId} = useParams();

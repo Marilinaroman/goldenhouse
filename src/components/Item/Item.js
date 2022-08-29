@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import './Item.css'
 import {Link} from 'react-router-dom'
 
 const Item = ({id, name, price, description, img}) =>{
@@ -9,7 +10,6 @@ const Item = ({id, name, price, description, img}) =>{
     return (
         <Card 
         key={id}
-        style={{ width: '18rem' }}
         onClick={handleClick}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>

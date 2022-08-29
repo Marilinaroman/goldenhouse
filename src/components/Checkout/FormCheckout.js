@@ -1,7 +1,6 @@
 import {useContext } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import CartContext from '../../context/CartContext'
+import './FormCheckout.css'
 
 
 const FormCheckout = ({createOrder}) =>{
@@ -25,9 +24,10 @@ const FormCheckout = ({createOrder}) =>{
     console.log(buyer)
     
     return (
-        <Container>
+        <div className='form'>
+            <h1>Complete the form</h1>
             <form className="justify-content-md-center" onSubmit={handleSubmit}>
-            <Row>
+            <div className='data'>
                 <label>First Name</label>
                 <input
                     required
@@ -46,8 +46,6 @@ const FormCheckout = ({createOrder}) =>{
                     value={lastName}
                     placeholder="Last name"
                 />
-            </Row>
-            <Row>
                 <label>Address</label>
                     <input 
                         type="text" 
@@ -67,12 +65,13 @@ const FormCheckout = ({createOrder}) =>{
                         required 
                         />
                         
-            </Row>
-            <Row>
-                {(firstName && lastName && address && phone )? <button className="button" onClick={()=>createOrder()}>submit</button> : console.log('Form empty')}
-            </Row>
+            </div>
+            <div className='formButton'>
+
+            {(firstName && lastName && address && phone )? <button className="button" onClick={()=>createOrder()}>Submit</button> : console.log('Form empty')}
+            </div>
             </form>
-        </Container>
+        </div>
     )
 }
 

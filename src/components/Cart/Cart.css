@@ -26,3 +26,19 @@
     text-decoration: none;
     color: black;
 }
+
+/*-------Tablet-------*/
+@media only screen and (max-width: 768px){
+    
+}
+/*-------Mobile-------*/
+@media only screen and (max-width: 390px){
+    .cart > table{
+        width: 90%
+    }
+    .containerButton{
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: 1fr;
+    }
+}

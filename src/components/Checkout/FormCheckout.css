@@ -1,0 +1,46 @@
+.form{
+    margin: 1rem;
+}
+
+.data{
+    display: grid;
+    justify-content: center;
+    border-radius: 9rem 3rem;
+    margin-left: 10rem;
+    margin-right: 10rem;   
+    background: rgb(240, 238, 237)
+
+}
+
+.data > input{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.data > input:hover{
+    box-shadow: rgb(45 45 45 / 20%) 0px 2px 20px;
+    transition: all 0.5s ease 0s;
+}
+
+.formButton > .button{
+    width: 10rem;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+/*-------Tablet-------*/
+@media only screen and (max-width: 768px){
+    .data{
+        margin-left: 5rem;
+        margin-right: 5rem;   
+    
+    }
+}
+
+/*-------Mobile-------*/
+@media only screen and (max-width: 390px){
+    .data{
+        margin-left: 0.05rem;
+        margin-right: 0.05rem;   
+    
+    }
+}

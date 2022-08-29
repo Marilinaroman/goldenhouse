@@ -46,7 +46,6 @@ const Checkout =() =>{
 
     return (
         <> 
-            <h1>Complete the form</h1>
             <FormCheckout createOrder={createOrder}/>
         </>
     )

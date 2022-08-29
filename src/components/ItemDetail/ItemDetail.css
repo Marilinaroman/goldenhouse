@@ -1,5 +1,8 @@
 .itemDetail{
     margin: 2rem;
+    width: 80%;
+    display: grid;
+    justify-content: center;
 }
 
 .detail{
@@ -12,4 +15,31 @@
     width: 25rem;
     height: 25rem;
 
+}
+
+
+/*-------Tablet-------*/
+@media only screen and (max-width: 768px){
+    .itemDetail{
+        width: 100%;
+    }
+    .imageProduct{
+        width: 20rem;
+        height: 20rem;
+    
+    }
+}
+/*-------Mobile-------*/
+@media only screen and (max-width: 390px){
+    .itemDetail{
+        width: 100%;
+        display: grid;
+        justify-content: center;
+    }
+    .detail{
+        margin: 0.25rem;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
 }

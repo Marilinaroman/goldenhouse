@@ -29,3 +29,14 @@ input{
     width: 4rem;
     text-align: center;
 }
+
+/*-------Tablet-------*/
+@media only screen and (max-width: 768px){
+    input{
+        width: 6rem;
+    }
+}
+/*-------Mobile-------*/
+@media only screen and (max-width: 390px){
+    
+}
