@@ -1,0 +1,21 @@
+.formLogin{
+    width: 100%;
+    justify-content: center;
+}
+
+.form-group{
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem;
+}
+
+.form-group > input{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.formLogin > .button{
+    padding: 0;
+    width: 5rem;
+}

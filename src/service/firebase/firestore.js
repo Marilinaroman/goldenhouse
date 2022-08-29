@@ -83,3 +83,25 @@ export const createNewOrders = async (newOrder, cart, clearCart) =>{
     }
     return orderAdd
 }
+
+export const getRegister = () =>{
+    const userRef = collection(db, 'users')
+
+    return getDocs(userRef).then(res =>{
+        const register = res.docs.map(doc=>{
+            const data = doc.data()
+            return{
+                id: doc.id,
+                ...data
+            }
+        })
+        return register
+    }).catch(error =>{
+        return error
+    })
+}
+
+export const newRegister = (users) =>{
+    const userRef = collection(db, 'users')
+    addDoc(userRef,users)
+}

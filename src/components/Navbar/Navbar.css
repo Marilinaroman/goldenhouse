@@ -19,3 +19,18 @@
     text-decoration: underline;
     color: white;
 }
+
+.loginCart{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    
+}
+
+.loginCart > .link{
+    text-decoration: none;
+    flex-direction: row;
+    font-size: 16px;
+    padding: 0.25rem;
+}
