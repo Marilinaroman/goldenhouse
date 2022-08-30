@@ -1,7 +1,9 @@
 .cards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 1rem;;
+    margin-top: 1rem;;
+    margin-left: 10rem;
+    margin-right: 10rem;
     height: auto;
 }
 .cards > div{
@@ -30,15 +32,19 @@
 @media only screen and (max-width: 768px){
     .cards{
         grid-template-columns: 1fr 1fr;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
     .card{
         width: 90%;
     }
 }
 /*-------Mobile-------*/
-@media only screen and (max-width: 390px){
+@media only screen and (max-width: 412px){
     .cards{
         grid-template-columns: 1fr;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     .card{
         width: 90%;

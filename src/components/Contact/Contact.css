@@ -1,0 +1,19 @@
+.contactForm{
+    height: 30rem;
+}
+
+.contactForm > h1{
+    margin-top: 1rem;
+}
+
+.contactForm > form{
+    display: grid;
+    justify-items: center;
+}
+
+.contactForm > form > input, textarea{
+    width: 15rem;
+}
+.contactForm > form > .button{
+    margin-top: 0.5rem;
+}

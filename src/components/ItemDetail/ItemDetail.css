@@ -30,7 +30,7 @@
     }
 }
 /*-------Mobile-------*/
-@media only screen and (max-width: 390px){
+@media only screen and (max-width: 412px){
     .itemDetail{
         width: 100%;
         display: grid;

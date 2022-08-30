@@ -1,5 +1,6 @@
 .form{
     margin: 1rem;
+    height: 30rem;
 }
 
 .data{
@@ -37,7 +38,7 @@
 }
 
 /*-------Mobile-------*/
-@media only screen and (max-width: 390px){
+@media only screen and (max-width: 412px){
     .data{
         margin-left: 0.05rem;
         margin-right: 0.05rem;   

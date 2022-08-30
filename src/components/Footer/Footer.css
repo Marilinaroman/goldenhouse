@@ -1,0 +1,21 @@
+
+.footer{
+    background-color: rgb(0, 0, 0);
+    height: 10rem;
+    display:grid;
+
+}
+
+.linkFooter{
+    margin-top: 1rem;
+}
+
+.linkFooter > a{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.copyFooter{
+    color: white;
+    background-color: black;
+}

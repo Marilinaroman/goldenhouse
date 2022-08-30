@@ -38,7 +38,7 @@ const NavbarGh = () => {
                         {data?.map((category) =>(
                             <Link to={category.path} key={category.name} className='link'>{category.name}</Link>
                         ))}
-                        <Link to='Category/Contact' className='link'>Contact</Link>
+                        <Link to='/Contact' className='link'>Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Brand className='loginCart col-2 me-auto'>

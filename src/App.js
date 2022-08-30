@@ -8,6 +8,8 @@ import Login from './components/Login/Login'
 import { CartContextProvider } from './context/CartContext';
 import { AlertProvider } from './context/Alert';
 import Checkout from './components/Checkout/Checkout'
+import Footer from './components/Footer/Footer';
+import { ContactUs } from './components/Contact/Contact';
 
 function App() {
   return (
@@ -21,10 +23,12 @@ function App() {
               <Route path="Category/:category" element={<ItemListContainer/>} />
               <Route path="Detail/:prodId" element={<ItemDetailContainer/>} />
               <Route path="Login" element={<Login/>} />
+              <Route path="Contact" element={<ContactUs/>} />
               <Route path="Cart" element={<CartDetail/>}/>
               <Route path='/Checkout' element={<Checkout/>}/>
               <Route path="*" element={<h1>404 Not Page</h1>} />
             </Routes>
+            <Footer/>
           </BrowserRouter>
         </CartContextProvider>
       </AlertProvider>
