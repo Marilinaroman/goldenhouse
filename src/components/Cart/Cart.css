@@ -1,3 +1,7 @@
+.containerCart{
+    height: 30rem;
+}
+
 .cart{
     width: 100%;
     display: flex;

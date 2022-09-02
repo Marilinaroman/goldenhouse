@@ -8,7 +8,7 @@ const CartDetail = () =>{
     const {cart, clearCart, removeItem, total} = useContext(CartContext)
 
     return(
-        <>
+        <div className='containerCart'>
             {cart.length === 0 ? 
                 (<>
                     <h1>Your cart is empty</h1>
@@ -59,7 +59,7 @@ const CartDetail = () =>{
                     </div>
                 </>)
             }
-        </>
+        </div>
     )
 }
 

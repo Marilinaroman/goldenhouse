@@ -57,7 +57,7 @@ const FormCheckout = ({createOrder}) =>{
                         />
                 <label>Phone</label>
                     <input 
-                        type="text" 
+                        type="number" 
                         placeholder="Phone" 
                         name='phone' 
                         value={phone} 

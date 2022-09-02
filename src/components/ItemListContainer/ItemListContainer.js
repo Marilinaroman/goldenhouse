@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import ItemList from './../ItemList/ItemList';
 import './ItemListContainer.css';
 import { useAsync } from "../../hooks/useAsync";
+import Loading from "../Loading/Loading";
 
 const ItemListContainer = ({tittle}) =>{
     useEffect(() => {
@@ -14,7 +15,7 @@ const ItemListContainer = ({tittle}) =>{
     const {data, error, loading} = useAsync(() => getProducts(category), [category])
     
     if(loading){
-        return <h1>Loading...</h1>
+        return <Loading />
     }
 
     if(error) {
@@ -22,13 +23,13 @@ const ItemListContainer = ({tittle}) =>{
     }
 
     return (
-    <>
+    <>  
         <h1>{ tittle?? category}</h1>
         <div className="cards">
             <ItemList products={data}/>
         </div>
-    </>    
-    )
+    </>   
+)
 }
 
 export default ItemListContainer
