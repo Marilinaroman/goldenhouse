@@ -1,6 +1,7 @@
 .itemDetail{
     margin: 2rem;
     width: 80%;
+    height: 50%;
     display: grid;
     justify-content: center;
 }
@@ -15,6 +16,13 @@
     width: 25rem;
     height: 25rem;
 
+}
+.otherProduct{
+    margin: 0.5rem;
+}
+
+.otherProduct > img{
+    margin-top: 0.5rem;
 }
 
 
@@ -40,6 +48,15 @@
         margin: 0.25rem;
         display: grid;
         grid-template-columns: 1fr;
+    }
+    .imagesDetail{
+        display: grid;
+        justify-content: center;
+    }
+    .imageProduct{
+        width: 20rem;
+        height: 20rem;
+    
     }
     
 }

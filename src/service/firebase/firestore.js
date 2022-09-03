@@ -17,6 +17,21 @@ export const getProducts = (category) =>{
         })
 }
 
+export const getOtherColor = (name) =>{
+    const nameFilter = query(collection(db,'products'),where('name', '==', name))
+
+    return getDocs(nameFilter).then(response =>{
+            const productsDb = response.docs.map(doc =>{
+                const data = doc.data()
+                return {id: doc.id, ...data}
+            })
+            if(productsDb.length > 1){
+                return productsDb }
+        }).catch(error =>{
+            return error
+        })
+}
+
 export const getProd = (prodId) =>{
     return getDoc(doc(db, 'products',prodId)).then(res => {
         const data = res.data()

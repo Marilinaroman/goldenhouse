@@ -1,19 +1,30 @@
-import {useState, createContext, useContext } from "react";
+import {useState, createContext, useContext, useEffect } from "react";
 import AlertContext  from './Alert';
 
 const CartContext = createContext()
 
 export const CartContextProvider = ({children}) =>{
+
     const {setNotification} = useContext(AlertContext)
-    const [cart, setCart] = useState([])
+
+    const [cart, setCart] = useState(() => {
+        const saved = localStorage.getItem("cart");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    
+})
+
     const [buyer, setBuyer] = useState({
         firstName:'',
         lastName:'',
         address:'',
         phone:''
-
 })
-    console.log(cart)
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
     const addItem = (productToAdd) =>{
         if(!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])

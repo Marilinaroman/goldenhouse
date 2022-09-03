@@ -36,7 +36,7 @@ const CartDetail = () =>{
                                     </td>
                                     <td>
                                         <Link className='linkProduct' to={`../Detail/${u.id}`}>
-                                            {u.name}
+                                            {u.name} - {u.colour}
                                         </Link>
                                     </td>
                                     <td>${u.price}</td>

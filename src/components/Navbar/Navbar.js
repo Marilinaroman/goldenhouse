@@ -41,8 +41,7 @@ const NavbarGh = () => {
                         <Link to='/Contact' className='link'>Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Navbar.Brand className='loginCart col-2 me-auto'>
-                    <Link to='Login' className='link'>Login</Link>
+                <Navbar.Brand className='loginCart col-3 me-auto'>
                     <Link to='Cart' className='link'><CartWidget/></Link>
                 </Navbar.Brand>
             </Container>

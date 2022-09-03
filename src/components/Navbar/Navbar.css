@@ -36,11 +36,25 @@
 }
 
 /*-------Tablet-------*/
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 992px){
     nav{
         width: 100%;
     }
     .navbar-brand{
         width: 60%;
+    }
+    .loginCart .col-3 .me-auto .navbar-brand{
+        width: 15%!important;
+    }
+}
+
+/*-----Mobile-----*/
+@media only screen and (max-width: 412px){
+    .navbar-brand{
+        width: 55%;
+    }
+    .loginCart{
+        flex-direction: column;
+        
     }
 }
