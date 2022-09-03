@@ -9,7 +9,8 @@ The WEB site contains the following pages and routes:
 <li>Home: it's the principal route (/) and contains all the products.</li>
 <li>Kitchen: the route (/Category/Kitchen) filters and shows the products from the category Kitchen.</li>
 <li>Bath: the route (/Category/Bath) only shows the products from the category Bath.</li>
-<li>Contact: the route (/Contact) is going to contain a form of contact.</li>
+<li>Contact: the route (/Contact) contains a form of contact.</li>
+<li>Login: the route (/Login) contains a form of login. soon, the buyer will be able to see his previous orders with this route.</li>
 </ul>
 
 *This proyect is being developed with React JS and Bootstrap*
@@ -53,6 +54,9 @@ Or you can download the .zip archive
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+Open [Bazar Golden House](https://goldenhouse-x4hydmhp9-marilinaroman.vercel.app/) to view  production enviroment.
+
+
 ## Branches of GIT
 
 **This proyect contains the following branches:**
@@ -63,9 +67,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
     <li>Item_list</li>
     <li>Item_count</li>
     <li>Item_detail</li>
+    <li>Alert</li>
+    <li>Cart</li>
+    <li>cart_context</li>
+    <li>Counter</li>
+    <li>Item_collection</li>
+    <li>Item_collection_two</li>
+    <li>Login</li>
+    <li>Segurity</li>
 </ul>
 <br>
 
 
 ## Gif 
-![Watch the video](https://github.com/Marilinaroman/goldenhouse/blob/main/public/video/goldenhouse.gif)
+![Watch the video](https://github.com/Marilinaroman/goldenhouse/blob/main/public/video/goldenHouseFinal.gif)

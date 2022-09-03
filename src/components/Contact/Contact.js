@@ -14,7 +14,6 @@ export const ContactUs = () => {
 
         emailjs.sendForm('service_geji25l','template_yoq5v6j', form.current, '_9x74mzrTJjsBxQWE')
         .then((result) => {
-            console.log(result.text);
             if(result.text === 'OK'){
                 setNotification('success', 'Your request has been sent')
                 setTimeout(() => {

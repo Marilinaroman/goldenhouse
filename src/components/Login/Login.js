@@ -1,14 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { getRegister, newRegister } from "../../service/firebase/firestore";
 import { useNavigate } from "react-router-dom";
-
-import './Login.css'
 import AlertContext from "../../context/Alert";
+import './Login.css'
 
 
 const Login = () =>{
-    const {setNotification} = useContext(AlertContext)
     const navigate = useNavigate()
+    const {setNotification} = useContext(AlertContext)
     const [register, setRegister ] = useState()
     const [users, setUsers] = useState({
         email:'',

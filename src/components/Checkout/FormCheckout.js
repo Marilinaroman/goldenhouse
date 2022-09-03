@@ -21,7 +21,6 @@ const FormCheckout = ({createOrder}) =>{
         e.stopPropagation()
     }
 
-    console.log(buyer)
     
     return (
         <div className='form'>
@@ -68,7 +67,7 @@ const FormCheckout = ({createOrder}) =>{
             </div>
             <div className='formButton'>
 
-            {(firstName && lastName && address && phone )? <button className="button" onClick={()=>createOrder()}>Submit</button> : console.log('Form empty')}
+            {(firstName && lastName && address && phone ) && <button className="button" onClick={()=>createOrder()}>Submit</button>}
             </div>
             </form>
         </div>
