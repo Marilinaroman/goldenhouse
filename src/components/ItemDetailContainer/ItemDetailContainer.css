@@ -4,3 +4,9 @@
     display: grid;
     justify-items: center;
 }
+/*-------Mobile-------*/
+@media only screen and (max-width: 390px){
+    .ItemDetailContainer{
+        height: auto;  
+    }
+}

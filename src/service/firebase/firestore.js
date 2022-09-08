@@ -17,7 +17,7 @@ export const getProducts = (category) =>{
         })
 }
 
-export const getOtherColor = (name) =>{
+export const getOtherColor =  (name) =>{
     const nameFilter = query(collection(db,'products'),where('name', '==', name))
 
     return getDocs(nameFilter).then(response =>{

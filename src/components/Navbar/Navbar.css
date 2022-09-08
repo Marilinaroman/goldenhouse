@@ -49,9 +49,9 @@
 }
 
 /*-----Mobile-----*/
-@media only screen and ((min-width: 360px) and (max-width: 417px)){
+@media only screen and (max-width: 390px){
     .navbar-brand{
-        width: 50%;
+        width: 55%;
     }
     .loginCart{
         flex-direction: column;

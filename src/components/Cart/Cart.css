@@ -36,7 +36,7 @@
     
 }
 /*-------Mobile-------*/
-@media only screen and (max-width: 412px){
+@media only screen and (max-width:390px){
     .cart > table{
         width: 90%
     }
