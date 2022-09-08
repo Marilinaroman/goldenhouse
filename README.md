@@ -54,7 +54,7 @@ Or you can download the .zip archive
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Open [Bazar Golden House](https://goldenhouse-x4hydmhp9-marilinaroman.vercel.app/) to view  production enviroment.
+Open [Bazar Golden House](https://goldenhouse.vercel.app/) to view  production enviroment.
 
 
 ## Branches of GIT

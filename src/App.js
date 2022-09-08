@@ -26,7 +26,7 @@ function App() {
               <Route path="Contact" element={<ContactUs/>} />
               <Route path="Cart" element={<CartDetail/>}/>
               <Route path='/Checkout' element={<Checkout/>}/>
-              <Route path="*" element={<h1>404 Not Page</h1>} />
+              <Route path="*" element={<div style={{height:"100%"}}><h1>404 Not Page</h1></div>} />
             </Routes>
             <Footer/>
           </BrowserRouter>
