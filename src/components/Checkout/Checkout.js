@@ -8,7 +8,14 @@ import './Checkout.css'
 const Checkout =() =>{
     const [isLoading, setIsLoading] = useState(false)
     const [newOrder, setNewOrder] = useState()
-    const {cart, total, clearCart, buyer}= useContext(CartContext)
+    const {cart, total, clearCart}= useContext(CartContext)
+
+    const [buyer, setBuyer] = useState({
+        firstName:'',
+        lastName:'',
+        address:'',
+        phone:''
+    })
 
     const navigate = useNavigate()
 
@@ -52,7 +59,7 @@ const Checkout =() =>{
 
     return (
         <div className="containerCheckout"> 
-            <FormCheckout createOrder={createOrder}/>
+            <FormCheckout createOrder={createOrder} buyer={buyer} setBuyer={setBuyer}/>
         </div>
     )
 }

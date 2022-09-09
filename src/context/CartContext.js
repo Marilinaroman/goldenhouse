@@ -13,15 +13,6 @@ export const CartContextProvider = ({children}) =>{
         return initialValue || [];
     
 })
-
-    const [buyer, setBuyer] = useState({
-        firstName:'',
-        lastName:'',
-        address:'',
-        phone:''
-})
-
-
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
@@ -82,7 +73,7 @@ export const CartContextProvider = ({children}) =>{
     
     
     return(
-        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total, buyer, setBuyer}}>
+        <CartContext.Provider value={{cart, addItem, getQuantity,getProductQuantity, isInCart, clearCart, removeItem, total}}>
             {children}
         </CartContext.Provider>
     )

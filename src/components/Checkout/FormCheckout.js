@@ -1,13 +1,7 @@
-import {useContext } from 'react';
-import CartContext from '../../context/CartContext'
 import './FormCheckout.css'
 
 
-const FormCheckout = ({createOrder}) =>{
-
-    const {buyer, setBuyer} = useContext(CartContext)
-    const {firstName, lastName, address, phone} = buyer
-
+const FormCheckout = ({createOrder, buyer, setBuyer}) =>{
     
     const handleChange = (e) =>{
         setBuyer({
@@ -33,7 +27,7 @@ const FormCheckout = ({createOrder}) =>{
                     type="text"
                     name='firstName'
                     placeholder="First name"
-                    value={firstName}
+                    value={buyer.firstName}
                     onChange={handleChange}
                 />
                 <label>Last name</label>
@@ -42,7 +36,7 @@ const FormCheckout = ({createOrder}) =>{
                     type="text"
                     name='lastName'
                     onChange={handleChange}
-                    value={lastName}
+                    value={buyer.lastName}
                     placeholder="Last name"
                 />
                 <label>Address</label>
@@ -50,7 +44,7 @@ const FormCheckout = ({createOrder}) =>{
                         type="text" 
                         placeholder="Address" 
                         name='address' 
-                        value={address} 
+                        value={buyer.address} 
                         onChange={handleChange} 
                         required
                         />
@@ -59,7 +53,7 @@ const FormCheckout = ({createOrder}) =>{
                         type="number" 
                         placeholder="Phone" 
                         name='phone' 
-                        value={phone} 
+                        value={buyer.phone} 
                         onChange={handleChange} 
                         required 
                         />
@@ -67,7 +61,7 @@ const FormCheckout = ({createOrder}) =>{
             </div>
             <div className='formButton'>
 
-            {(firstName && lastName && address && phone ) && <button className="button" onClick={()=>createOrder()}>Submit</button>}
+            {(buyer.firstName && buyer.lastName && buyer.address && buyer.phone ) && <button className="button" onClick={()=>createOrder()}>Submit</button>}
             </div>
             </form>
         </div>
